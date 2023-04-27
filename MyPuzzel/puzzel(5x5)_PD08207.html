@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puzzel 5x5</title>
+    <link rel="stylesheet" href="ASM3.Css">
+</head>
+
+<body>
+    <audio id="tinPlayer" src="LoveStory.mp3"></audio>
+    <div class="wrapper">
+        <header class="heading">
+            <div class="background"></div>
+        </header>
+        <div class="a">
+            <h2 style="color: black;">Chào Mừng Qúy Thầy Cô Và Các Bạn</h2>
+            <div>
+                <marquee direction="left" style="background:orange">GAME PUZZLE_ASSIGNMENT_WEB1043_BÀI LÀM SV:
+                    DƯƠNG NGUYỄN THƯƠNG TÍN_PD08207* CHÚC MỌI NGƯỜI CHƠI GAME GIẢI TRÍ VUI VẺ ❀◕ ‿◕❀</marquee>
+                <div class="container">
+                    <div class="qc">
+                        <a
+                            href=https://caodang.fpt.edu.vn/ldp-uu-dai-hoc-phi?utm_source=google&utm_medium=search&utm_campaign=LDP_HB1Tr&gclid=Cj0KCQjwocShBhCOARIsAFVYq0j2Gum3O9t6N-6VW0x1l7TVznx86Ax0e1eIVYCadSaeCzljg6eLif4aAoAgEALw_wcB>
+                            <img src="img/th.jpg" style="max-width: 100%;height:550px">
+                        </a>
+
+                    </div>
+
+                    <div class="board">
+                        <!--Tạo 1 bảng 5 x 5 các nút-->
+
+                        <button onclick="move( 0, 0)" id="b00" class="bth">1</button>
+                        <button onclick="move( 0, 1)" id="b01" class="bth">2</button>
+                        <button onclick="move( 0, 2)" id="b02" class="bth">3</button>
+                        <button onclick="move( 0, 3)" id="b03" class="bth">4</button>
+                        <button onclick="move( 0, 4)" id="b04" class="bth">5</button>
+                        <br>
+                        <button onclick="move( 1, 0)" id="b10" class="bth">6</button>
+                        <button onclick="move( 1, 1)" id="b11" class="bth">7</button>
+                        <button onclick="move( 1, 2)" id="b12" class="bth">8</button>
+                        <button onclick="move( 1, 3)" id="b13" class="bth">9</button>
+                        <button onclick="move( 1, 4)" id="b14" class="bth">10</button>
+                        <br>
+                        <button onclick="move( 2, 0)" id="b20" class="bth">11</button>
+                        <button onclick="move( 2, 1)" id="b21" class="bth">12</button>
+                        <button onclick="move( 2, 2)" id="b22" class="bth">13</button>
+                        <button onclick="move( 2, 3)" id="b23" class="bth">14</button>
+                        <button onclick="move( 2, 4)" id="b24" class="bth">15</button>
+                        <br>
+                        <button onclick="move( 3, 0)" id="b30" class="bth">16</button>
+                        <button onclick="move( 3, 1)" id="b31" class="bth">17</button>
+                        <button onclick="move( 3, 2)" id="b32" class="bth">18</button>
+                        <button onclick="move( 3, 3)" id="b33" class="bth">19</button>
+                        <button onclick="move( 3, 4)" id="b34" class="bth">20</button>
+                        <br>
+                        <button onclick="move( 4, 0)" id="b40" class="bth">21</button>
+                        <button onclick="move( 4, 1)" id="b41" class="bth">22</button>
+                        <button onclick="move( 4, 2)" id="b42" class="bth">23</button>
+                        <button onclick="move( 4, 3)" id="b43" class="bth">24</button>
+                        <button onclick="move( 4, 4)" id="b44" class="bth">25</button>
+                        <br>
+                        <button id="nutBatTat" onclick="batTat()">Bật Tắt</button>
+
+                        <div class="nut">
+                            <button class="button" onclick="doiMau()">Đổi màu để sống động hơn</button>
+
+                        </div>
+                        <div class="trogiup">
+                            <button>
+                                <a href="trogiup.html"> Trợ Giúp</a>
+                            </button>
+                        </div>
+
+
+
+                    </div>
+                    <div class="qc1">
+                        <iframe width="400" height="550" src="https://www.youtube.com/embed/VrBq3q65NW8"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+
+                    </div>
+                    <footer class="footer">
+                        <h3 class="footer-name">Cao Đẳng FPT (Cơ Sở Đà Nẵng)</h3>
+                        <p class="footer-address">Địa chỉ: 137 Nguyễn Thị Thập, Phường Hòa Minh, Quận Liên Chiểu, TP. Đà
+                            Nẵng</p>
+                        <p class="phone">Điện thoại: Phòng Tư vấn tuyển sinh: (0236) 3710 999- Email:
+                            caodangfpt.dn@fpt.edu.vn</p>
+                    </footer>
+                    <script>
+                        //khai báo các biến
+                        const data = [
+                            ["1", "2", "3", "4", "5"],
+                            ["6", "7", "8", "9", "10"],
+                            ["11", "12", "13", "14", "15"],
+                            ["16", "17", "18", "19", "20"],
+                            ["21", "22", "23", "24", " "],
+                        ]
+                        //kết quả
+                        const ketQua = [
+                            ["1", "2", "3", "4", "5"],
+                            ["6", "7", "8", "9", "10"],
+                            ["11", "12", "13", "14", "15"],
+                            ["16", "17", "18", "19", "20"],
+                            ["21", "22", "23", "24", " "],
+                        ]
+
+                        // mảng 2 chiều 5x5 các button
+                        const b = [
+                            [document.getElementById("b00"), document.getElementById("b01"), document.getElementById("b02"), document.getElementById("b03"), document.getElementById("b04")],
+                            [document.getElementById("b10"), document.getElementById("b11"), document.getElementById("b12"), document.getElementById("b13"), document.getElementById("b14")],
+                            [document.getElementById("b20"), document.getElementById("b21"), document.getElementById("b22"), document.getElementById("b23"), document.getElementById("b24")],
+                            [document.getElementById("b30"), document.getElementById("b31"), document.getElementById("b32"), document.getElementById("b33"), document.getElementById("b34")],
+                            [document.getElementById("b40"), document.getElementById("b41"), document.getElementById("b42"), document.getElementById("b43"), document.getElementById("b44")],
+                        ]
+                        //bang Mau
+                        const bangMau = ["white", "orange", "yellow", "lightyellow", "lime", "lightblue"];
+                        let mau = 0;
+                        //AM nhac
+
+                        let myPlayer = document.getElementById("tinPlayer");
+                        let soundOn = true;
+
+                        function batTat() {
+                            let nutBatTat = document.getElementById("nutBatTat");
+                            if (soundOn) {
+                                soundOn = false;
+                                myPlayer.play();
+                                nutBatTat.innerHTML = "Đang bật nhạc";
+                            } else {
+                                soundOn = true;
+                                myPlayer.pause();
+                                nutBatTat.innerHTML = "Đang tắt nhạc";
+
+                            }
+                        }
+
+                        //---------------------------------------
+                        function doiMau() {
+                            if (mau < bangMau.length - 2) mau++;
+                            else mau = 0;
+                            veMauNen();
+                        }
+                        // ----------------------------------------------
+                        function veMauNen() {
+                            for (let i = 0; i < 5; i++) {
+                                for (let j = 0; j < 5; j++) {
+                                    if ((i + j) % 2 == 0) b[i][j].style.background = bangMau[mau];
+                                    else b[i][j].style.background = bangMau[mau + 1];
+                                }
+                            }
+                        }
+                        //
+                        function namTrong(i, j) {
+                            if (i >= 0 && i < 5 && j >= 0 && j < 5) return true;
+                            else return false;
+                        }
+                        //
+                        function move(i, j) {
+                            if (namTrong(i, j + 1) && data[i][j + 1] == " ") {
+                                data[i][j + 1] = data[i][j];
+                                data[i][j] = " ";
+                            } else if (namTrong(i, j - 1) && data[i][j - 1] == " ") {
+                                data[i][j - 1] = data[i][j];
+                                data[i][j] = " ";
+
+                            } else if (namTrong(i + 1, j) && data[i + 1][j] == " ") {
+                                data[i + 1][j] = data[i][j];
+                                data[i][j] = " ";
+
+                            } else if (namTrong(i - 1, j) && data[i - 1][j] == " ") {
+                                data[i - 1][j] = data[i][j];
+                                data[i][j] = " ";
+                            }
+                            veSo();
+                            kiemTraKetQua();
+                        }
+
+                        // hiển thị số
+                        function veSo() {
+                            for (let i = 0; i < 5; i++) {
+                                for (let j = 0; j < 5; j++) {
+                                    b[i][j].textContent = data[i][j];
+                                }
+                            }
+                        }
+
+                        //khai báo các hàm
+                        function mauNen() {
+                            for (let i = 0; i < 5; i++) {
+                                for (let j = 0; j < 5; j++) {
+                                    if ((i + j) % 2 == 0) b[i][j].style.background = bangMau[mau];
+                                    else b[i][j].style.background = bangMau[mau + 1];
+                                }
+                            }
+                        }
+
+                        //---------------------------------------
+                        // hàm này cho số ngẫu nhiên 0,1,2,3....n-1
+                        function ranInt(n) {
+                            return Math.floor(Math.random() * n);
+                        }
+                        //Di chuyển ngẫu nhiên quân cờ, đúng luật
+                        function ranMove() {
+                            for (let i = 0; i < 4; i++) {
+                                for (let j = 0; j < 4; j++) {
+                                    data[i][j] = ketQua[i][j];
+                                }
+                            }
+                            //vị trí ô trống
+                            let u = 4, v = 4;
+                            let soLan = 0;
+                            //lặp lại nhiều lần
+                            do {
+                                switch (ranInt(5)) {
+                                    //dời qua bên trái
+                                    case 0:
+                                        if (namTrong(u, v - 1)) {
+                                            data[u][v] = data[u][v - 1];
+                                            data[u][v - 1] = " ";
+                                            v = v - 1;
+                                        }
+                                        break;
+                                    //dời lên trên
+                                    case 1:
+                                        if (namTrong(u - 1, 1)) {
+                                            data[u][v] = data[u - 1][v];
+                                            data[u - 1][v] = " ";
+                                            u = u - 1;
+                                        }
+                                        break;
+                                    //dời xuống dưới
+                                    case 2:
+                                        if (namTrong(u + 1, 1)) {
+                                            data[u][v] = data[u + 1][v];
+                                            data[u + 1][v] = " ";
+                                            u = u + 1;
+                                        }
+                                        break;
+                                    //dời qua phải
+                                    case 3:
+                                        if (namTrong(u, v + 1)) {
+                                            data[u][v] = data[u][v + 1];
+                                            data[u][v + 1] = " ";
+                                            v = v + 1;
+                                        }
+                                        break;
+                                }
+                                soLan++;
+
+                            } while (soLan < 5);
+                            veSo();
+                        }
+                        //kết quả THẮNG
+                        function kiemTraKetQua() {
+                            let ketThuc = true;
+                            for (let i = 0; i < 5; i++) {
+                                for (let j = 0; j < 5; j++) {
+                                    if (data[i][j] !== ketQua[i][j]) {
+                                        ketThuc = false;
+                                        break;
+                                    }
+                                }
+                            }
+                            if (ketThuc) {
+                                alert("Chúc mừng,Dương Nguyễn Thương Tín đã tạo ra trò chơi này nhờ sự giúp đỡ của Thầy Lê Văn Duẩn ,Bạn Đã Thắng Các Chế Độ trong game này xin Cảm Ơn!!!");
+                                for (let i = 0; i < 5; i++) {
+                                    for (let j = 0; j < 5; j++) {
+                                        b[i][j].disabled = true;
+                                    }
+                                }
+
+                            }
+                        }
+
+                        //main   
+                        mauNen();
+                        veSo();
+                        ranMove();
+                        myPlayer.play();
+
+
+                    </script>
+
+
+                </div>
+
+</body>
+
+</html>

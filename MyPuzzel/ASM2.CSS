@@ -1,0 +1,150 @@
+/* RESET CSS */
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    font-size: 60%;
+}
+
+
+
+li {
+    list-style: none;
+}
+
+
+
+
+body {
+    min-height: 100vh;
+    font-size: 1.6rem;
+    line-height: 1.503;
+    text-rendering: optimizeSpeed;
+    overflow-y: overlay;
+    font-family: 'Nunito', sans-serif;
+    background-color: #FFFF66;
+    background-attachment: fixed;
+}
+
+
+/* color text : # */
+
+.wrapper {
+
+    max-width: 1200px;
+    margin-inline: auto;
+}
+
+
+/* CSS HEADER */
+
+
+.background {
+    background-image: url(img/bannerthegioididong.jpg);
+    background-repeat: no-repeat;
+    padding-top: 250px;
+    background-position: top center;
+    background-size: 100%;
+    position: relative;
+}
+
+
+div.a {
+    text-align: center;
+}
+
+img {
+    margin-top: 0px;
+    width: 450px;
+    height: 200px;
+
+}
+
+iframe {
+    margin-top: 0px;
+}
+
+.bth {
+    height: 90px;
+    width: 90px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.container {
+    width: 1200px;
+    text-align: center;
+    margin: 0 auto;
+
+}
+
+
+
+.board {
+    padding-top: 1px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 360px;
+    width: 360px;
+    float: left;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.qc {
+    float: left;
+
+
+}
+
+
+.qc1 {
+    float: right;
+    width: 330px;
+    height: 100px;
+
+}
+
+.nut {
+    margin: 0 auto;
+    width: 300px;
+    margin-top: 0px;
+}
+
+#nutBatTat {
+    margin-right: 105px;
+}
+
+button {
+    margin: 0 auto;
+    background-color: #FF9999;
+    border-radius: 5px;
+    height: 48px;
+    width: 150px;
+
+}
+
+
+
+
+.qc1 a:visited {
+    color: red;
+}
+
+.footer {
+
+    padding: 5px;
+    clear: both;
+    text-align: center;
+    background-color: #FFCC00;
+
+}
